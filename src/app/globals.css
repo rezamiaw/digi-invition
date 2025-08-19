@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* Custom Font Declaration */
+@font-face {
+  font-family: 'Kunstler';
+  src: url('/KUNSTLER.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -10,6 +19,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-kumbh: var(--font-kumbh-sans);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +33,310 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Background Image Style */
+.bg-image {
+  background-color: #FEF9E1;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.bg-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.28;
+  z-index: 0;
+}
+
+/* Mobile-first layout dengan rasio 9:16 */
+#__next, main {
+  width: 100%;
+  height: 100vh;
+  max-width: calc(100vh * 9/16);
+  margin: 0 auto;
+  position: relative;
+  background: var(--background);
+}
+
+/* Animation untuk fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideInUp {
+  animation: slideInUp 0.8s ease-out forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.6s ease-out forwards;
+}
+
+.animate-bounceIn {
+  animation: bounceIn 0.8s ease-out forwards;
+}
+
+.animate-floatIn {
+  animation: floatIn 0.8s ease-out forwards;
+}
+
+/* Delay classes for staggered animations */
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+.delay-600 {
+  animation-delay: 0.6s;
+}
+
+.delay-700 {
+  animation-delay: 0.7s;
+}
+
+/* Initially hidden for animations */
+.animate-slideInUp,
+.animate-scaleIn,
+.animate-bounceIn,
+.animate-floatIn {
+  opacity: 0;
+}
+
+/* Viewport-based animation classes */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.animate-on-scroll.animate-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-on-scroll-scale {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.6s ease-out;
+}
+
+.animate-on-scroll-scale.animate-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.animate-on-scroll-bounce {
+  opacity: 0;
+  transform: scale(0.3);
+  transition: all 0.8s ease-out;
+}
+
+.animate-on-scroll-bounce.animate-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.animate-on-scroll-float {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.6s ease-out;
+}
+
+.animate-on-scroll-float.animate-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animation untuk penjor - gentle sway */
+@keyframes gentleSway {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(1deg);
+  }
+  75% {
+    transform: rotate(-1deg);
+  }
+}
+
+@keyframes gentleSwayLeft {
+  0%, 100% {
+    transform: rotate(0deg) scale(-1, 1);
+  }
+  25% {
+    transform: rotate(-1deg) scale(-1, 1);
+  }
+  75% {
+    transform: rotate(1deg) scale(-1, 1);
+  }
+}
+
+.animate-sway {
+  animation: gentleSway 4s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.animate-sway-left {
+  animation: gentleSwayLeft 4s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+/* Background untuk Invitation Content */
+.bg-invitation-content {
+  position: relative;
+  background-color: #FEF9E1;
+}
+
+.bg-invitation-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/bg2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0.37;
+  z-index: 1;
+}
+
+/* Background untuk Gallery Prayer Page */
+.bg-gallery-prayer {
+  position: relative;
+  background-color: #F5E6D3;
+}
+
+.bg-gallery-prayer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/bg3.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0.30;
+  z-index: 1;
+}
+
+/* Custom Scrollbar for History Section */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #D4C4B0 transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #A31D1D 0%, #D4C4B0 100%);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #8B1A1A 0%, #A0856B 100%);
+  background-clip: content-box;
 }
