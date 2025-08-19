@@ -23,7 +23,7 @@ export const UcapanDoaPage: React.FC<UcapanDoaPageProps> = ({ isVisible }) => {
     {
       id: 1,
       nama: "Budi Santoso",
-      ucapan: "Selamat atas pernikahan kalian! Semoga menjadi keluarga yang bahagia, harmonis, dan penuh berkah. Barakallahu lakuma wa baraka alaikuma wa jama'a bainakuma fi khair.",
+      ucapan: "Selamat atas pernikahan kalian! Semoga menjadi keluarga yang bahagia, harmonis, dan penuh berkah. Barakallahu lakuma wa baraka alaikuma wa jama&apos;a bainakuma fi khair.",
       tanggal: "2 jam yang lalu"
     },
     {
@@ -179,7 +179,7 @@ export const UcapanDoaPage: React.FC<UcapanDoaPageProps> = ({ isVisible }) => {
             >
               {/* Scroll Area */}
               <div className="h-full overflow-y-auto custom-scrollbar p-6 space-y-4">
-                {ucapanHistory.map((item, index) => (
+                {ucapanHistory.map((item) => (
                   <div 
                     key={item.id}
                     className="bg-white/90 backdrop-blur-sm rounded-[15px] p-5 shadow-md border border-[#D4C4B0]/20 transition-all duration-300 hover:shadow-lg hover:bg-white/95"

@@ -39,7 +39,7 @@ export const GalleryPrayerPage: React.FC<GalleryPrayerPageProps> = ({ isVisible 
                 lineHeight: '1.8'
               }}
             >
-              "Hai manusia, sungguh kami telah menciptakan kamu dari seorang laki-laki dan seorang perempuan, kemudian kami jadikan kamu berbangsa-bangsa dan bersuku-suku agar kamu saling mengenal. Sesungguhnya yang paling mulia di antara kami disisi Allah ialah orang yang paling bertakwa."
+              &ldquo;Hai manusia, sungguh kami telah menciptakan kamu dari seorang laki-laki dan seorang perempuan, kemudian kami jadikan kamu berbangsa-bangsa dan bersuku-suku agar kamu saling mengenal. Sesungguhnya yang paling mulia di antara kami disisi Allah ialah orang yang paling bertakwa.&rdquo;
             </p>
           </AnimatedElement>
           
