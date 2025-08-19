@@ -47,7 +47,14 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onOpenInvitation }) =>
       {/* Button Buka Undangan */}
       <div className="absolute inset-0 flex items-center justify-center z-20">
         <Button 
-          onClick={onOpenInvitation}
+          onClick={() => {
+            // Trigger existing flow
+            onOpenInvitation();
+            // Dispatch a custom event to start music (counts as user gesture)
+            if (typeof window !== 'undefined') {
+              window.dispatchEvent(new Event('play-music'));
+            }
+          }}
           className="absolute bottom-30 flex items-center gap-3"
         >
           <EnvelopeIcon />

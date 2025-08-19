@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { showToast } from '@/components';
 import { AnimatedElement } from '@/components/ui/AnimatedElement';
 
 interface RSVPPageProps {
@@ -16,6 +17,7 @@ export const RSVPPage: React.FC<RSVPPageProps> = ({ isVisible }) => {
     e.preventDefault();
     // Handle form submission logic here
     console.log({ nama, jumlahTamu, konfirmasi });
+    showToast('RSVP berhasil dikirim. Terima kasih!', 'success');
   };
 
   if (!isVisible) return null;

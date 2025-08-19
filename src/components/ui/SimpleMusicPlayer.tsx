@@ -1,16 +1,18 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { MusicIcon } from './MusicIcon';
 
 interface SimpleMusicPlayerProps {
   audioSrc?: string;
   className?: string;
+  isVisible?: boolean; // allow hiding on landing page
 }
 
 export const SimpleMusicPlayer: React.FC<SimpleMusicPlayerProps> = ({ 
   audioSrc = '/wedding-music.mp3', 
-  className = '' 
+  className = '',
+  isVisible = true,
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -32,12 +34,32 @@ export const SimpleMusicPlayer: React.FC<SimpleMusicPlayerProps> = ({
     }
   };
 
+  // Listen for global play request (e.g., after clicking "Buka Undangan")
+  useEffect(() => {
+    const handlePlayRequest = async () => {
+      const audio = audioRef.current;
+      if (!audio) return;
+      try {
+        await audio.play();
+        setIsPlaying(true);
+      } catch (error) {
+        console.error('Autoplay failed:', error);
+      }
+    };
+
+    window.addEventListener('play-music', handlePlayRequest);
+    return () => {
+      window.removeEventListener('play-music', handlePlayRequest);
+    };
+  }, []);
+
   return (
     <>
       {/* Audio Element */}
       <audio
         ref={audioRef}
         loop
+        preload="metadata"
         onEnded={() => setIsPlaying(false)}
         onError={(e) => console.error('Audio error:', e)}
       >
@@ -48,6 +70,7 @@ export const SimpleMusicPlayer: React.FC<SimpleMusicPlayerProps> = ({
       </audio>
 
       {/* Music Button */}
+      {isVisible && (
       <button
         onClick={togglePlay}
         className={`
@@ -71,6 +94,7 @@ export const SimpleMusicPlayer: React.FC<SimpleMusicPlayerProps> = ({
           className="w-6 h-6" 
         />
       </button>
+      )}
     </>
   );
 };

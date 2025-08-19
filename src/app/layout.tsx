@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import { Geist, Geist_Mono, Kumbh_Sans } from "next/font/google";
 import "./globals.css";
 
@@ -19,8 +20,37 @@ const kumbhSans = Kumbh_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Digital Invitation - Wedding of A & B",
-  description: "Wedding of A & B",
+  title: "The Wedding of Tania & Doni",
+  description:
+    "Undangan pernikahan digital Tania & Doni. Doa, restu, RSVP, galeri, dan Wedding Gift.",
+  metadataBase: new URL("https://example.com"),
+  openGraph: {
+    title: "The Wedding of Tania & Doni",
+    description:
+      "Undangan pernikahan digital Tania & Doni. Doa, restu, RSVP, galeri, dan Wedding Gift.",
+    url: "https://example.com",
+    siteName: "Tania & Doni Wedding",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "The Wedding of Tania & Doni",
+      },
+    ],
+    locale: "id_ID",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Wedding of Tania & Doni",
+    description:
+      "Undangan pernikahan digital Tania & Doni. Doa, restu, RSVP, galeri, dan Wedding Gift.",
+    images: ["/og-image.png"],
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -44,6 +74,7 @@ export default function RootLayout({
         <main className="relative w-full h-full">
           {children}
         </main>
+        <Analytics />
       </body>
     </html>
   );

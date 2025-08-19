@@ -235,6 +235,13 @@ body {
   transform: translateY(0);
 }
 
+/* Loading bar keyframes for preloader */
+@keyframes loadingBar {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(10%); }
+  100% { transform: translateX(120%); }
+}
+
 /* Animation untuk penjor - gentle sway */
 @keyframes gentleSway {
   0%, 100% {

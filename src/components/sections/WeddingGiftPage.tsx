@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { AnimatedElement } from '@/components/ui/AnimatedElement';
+import { showToast } from '@/components';
 
 interface WeddingGiftPageProps {
   isVisible: boolean;
@@ -156,7 +157,7 @@ export const WeddingGiftPage: React.FC<WeddingGiftPageProps> = ({ isVisible }) =
                       <button
                         className="bg-[#A31D1D] hover:bg-[#8B1A1A] text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300"
                         style={{ fontFamily: 'var(--font-kumbh-sans), sans-serif' }}
-                        onClick={() => navigator.clipboard.writeText('1234567890')}
+                        onClick={() => { navigator.clipboard.writeText('1234567890'); showToast('Nomor rekening BCA disalin', 'success'); }}
                       >
                         Copy
                       </button>
@@ -189,7 +190,7 @@ export const WeddingGiftPage: React.FC<WeddingGiftPageProps> = ({ isVisible }) =
                       <button
                         className="bg-[#A31D1D] hover:bg-[#8B1A1A] text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300"
                         style={{ fontFamily: 'var(--font-kumbh-sans), sans-serif' }}
-                        onClick={() => navigator.clipboard.writeText('0987654321')}
+                        onClick={() => { navigator.clipboard.writeText('0987654321'); showToast('Nomor rekening Mandiri disalin', 'success'); }}
                       >
                         Copy
                       </button>
@@ -234,7 +235,7 @@ export const WeddingGiftPage: React.FC<WeddingGiftPageProps> = ({ isVisible }) =
                       <button
                         className="bg-[#A31D1D] hover:bg-[#8B1A1A] text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300"
                         style={{ fontFamily: 'var(--font-kumbh-sans), sans-serif' }}
-                        onClick={() => navigator.clipboard.writeText('081234567890')}
+                        onClick={() => { navigator.clipboard.writeText('081234567890'); showToast('Nomor GoPay disalin', 'success'); }}
                       >
                         Copy
                       </button>
@@ -267,7 +268,7 @@ export const WeddingGiftPage: React.FC<WeddingGiftPageProps> = ({ isVisible }) =
                       <button
                         className="bg-[#A31D1D] hover:bg-[#8B1A1A] text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300"
                         style={{ fontFamily: 'var(--font-kumbh-sans), sans-serif' }}
-                        onClick={() => navigator.clipboard.writeText('081098765432')}
+                        onClick={() => { navigator.clipboard.writeText('081098765432'); showToast('Nomor OVO disalin', 'success'); }}
                       >
                         Copy
                       </button>

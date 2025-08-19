@@ -5,6 +5,7 @@ export { MusicIcon } from './ui/MusicIcon';
 export { MusicPlayer } from './ui/MusicPlayer';
 export { SimpleMusicPlayer } from './ui/SimpleMusicPlayer';
 export { AnimatedElement } from './ui/AnimatedElement';
+export { ToastContainer, showToast } from './ui/Toast';
 
 // Section Components
 export { LandingPage } from './sections/LandingPage';

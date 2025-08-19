@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { LandingPage, InvitationContent, BrideGroomPage, GalleryPrayerPage, RSVPPage, UcapanDoaPage, WeddingGiftPage, SimpleMusicPlayer } from '@/components';
+import { LandingPage, InvitationContent, BrideGroomPage, GalleryPrayerPage, RSVPPage, UcapanDoaPage, WeddingGiftPage, SimpleMusicPlayer, ToastContainer } from '@/components';
 import { useInvitation } from '@/hooks/useInvitation';
 
 export default function Home() {
@@ -18,7 +18,8 @@ export default function Home() {
       <WeddingGiftPage isVisible={isWeddingGiftPageOpen} />
       
       {/* Floating Music Player */}
-      <SimpleMusicPlayer />
+      <SimpleMusicPlayer isVisible={isInvitationOpen || isBrideGroomPageOpen || isGalleryPrayerPageOpen || isRSVPPageOpen || isUcapanDoaPageOpen || isWeddingGiftPageOpen} />
+      <ToastContainer />
     </div>
   );
 }
