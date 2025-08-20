@@ -98,7 +98,7 @@ export const GalleryPrayerPage: React.FC<GalleryPrayerPageProps> = ({ isVisible 
         </div>
 
         {/* Our Gallery Section */}
-        <div className="mt-6 md:mt-12 relative z-10">
+        <div className="mt-4 md:mt-2 mb-4 md:mb-8 relative z-10">
           {/* Gallery Title */}
           <AnimatedElement animationType="slide" delay={300}>
             <h2 

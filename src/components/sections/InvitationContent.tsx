@@ -161,7 +161,7 @@ export const InvitationContent: React.FC<InvitationContentProps> = ({ isVisible 
 
         {/* Guest Count Info - Centered */}
         <AnimatedElement animationType="float" delay={600}>
-          <div className="mt-8 text-center max-w-md mx-auto">
+          <div className="mt-8 mb-8 text-center max-w-md mx-auto">
             <p 
               className="text-[#A31D1D] text-[16px] leading-relaxed"
               style={{ 
